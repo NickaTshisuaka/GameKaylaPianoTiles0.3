@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piano Tiles Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
+</head>
+<body>
+    <div id="gameContainer">
+        <!-- Score Display -->
+        <div id="score">0</div>
+        <div id="combo"></div>
+        <div id="speedIndicator">Speed: 1.0x</div>
+        <div id="highScore">Best: 0</div>
+
+        <!-- Perfect Line -->
+        <div id="perfectLine"></div>
+
+        <!-- Game Board -->
+        <div id="gameBoard">
+            <div class="column" data-col="0"></div>
+            <div class="column" data-col="1"></div>
+            <div class="column" data-col="2"></div>
+            <div class="column" data-col="3"></div>
+        </div>
+
+        <!-- Start Screen -->
+        <div id="startScreen">
+            <h1>Piano Tiles</h1>
+            <p>Tap the black tiles as they reach the golden line!</p>
+            <button class="btn" onclick="startGame()">Start Game</button>
+        </div>
+        <!-- Lives / Hearts -->
+<div id="livesContainer"></div>
+
+        <!-- Game Over Screen -->
+        <div id="gameOverScreen">
+            <h1>Game Over!</h1>
+            <div class="stats">Score: <span id="finalScore">0</span></div>
+            <div class="stats">Best Combo: <span id="finalCombo">0</span></div>
+            <div class="stats">High Score: <span id="finalHighScore">0</span></div>
+            <button class="btn" onclick="restartGame()" style="margin-top: 30px;">Play Again</button>
+        </div>
+    </div>
+
+    <!-- Load JavaScript at the end -->
+    <script src="gamelogic.js"></script>
+</body>
+</html>
