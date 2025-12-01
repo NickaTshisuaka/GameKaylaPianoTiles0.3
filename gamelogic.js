@@ -162,11 +162,11 @@
 
   function playSnippet(index = 0, loop = true) {
     stopSnippet();
-    const src = SNIPPETS[index % SNIPPETS.length];
-    snippetMusic = new Audio(src);
-    snippetMusic.loop = loop;
-    snippetMusic.volume = 0.3; // adjust volume as needed
-    snippetMusic.play().catch((e) => console.warn("Snippet play error", e));
+    // const src = SNIPPETS[index % SNIPPETS.length];
+    // snippetMusic = new Audio(src);
+    // snippetMusic.loop = loop;
+    // snippetMusic.volume = 0.3; // adjust volume as needed
+    // snippetMusic.play().catch((e) => console.warn("Snippet play error", e));
   }
 
   function stopSnippet() {
