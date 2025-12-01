@@ -1,51 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Piano Tiles Game</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Piano Tiles </title>
+  <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="gameContainer">
-        <!-- Score Display -->
-        <div id="score">0</div>
-        <div id="combo"></div>
-        <div id="speedIndicator">Speed: 1.0x</div>
-        <div id="highScore">Best: 0</div>
+  <div id="app" class="app">
+    <!-- Stars / background -->
+    <div id="stars" class="stars" aria-hidden="true"></div>
 
-        <!-- Perfect Line -->
-        <div id="perfectLine"></div>
-
-        <!-- Game Board -->
-        <div id="gameBoard">
-            <div class="column" data-col="0"></div>
-            <div class="column" data-col="1"></div>
-            <div class="column" data-col="2"></div>
-            <div class="column" data-col="3"></div>
-        </div>
-
-        <!-- Start Screen -->
-        <div id="startScreen">
-            <h1>Piano Tiles</h1>
-            <p>Tap the black tiles as they reach the golden line!</p>
-            <button class="btn" onclick="startGame()">Start Game</button>
-        </div>
-        <!-- Lives / Hearts -->
-<div id="livesContainer"></div>
-
-        <!-- Game Over Screen -->
-        <div id="gameOverScreen">
-            <h1>Game Over!</h1>
-            <div class="stats">Score: <span id="finalScore">0</span></div>
-            <div class="stats">Best Combo: <span id="finalCombo">0</span></div>
-            <div class="stats">High Score: <span id="finalHighScore">0</span></div>
-            <button class="btn" onclick="restartGame()" style="margin-top: 30px;">Play Again</button>
-        </div>
+    <!-- Top HUD -->
+    <div id="hud" class="hud">
+      <div id="score" class="score">0</div>
+      <div class="hud-right">
+        <div id="lives" class="lives"></div>
+        <div id="speedIndicator" class="speed">2.0x</div>
+      </div>
     </div>
 
-    <!-- Load JavaScript at the end -->
-    <script src="gamelogic.js"></script>
+    <!-- Combo -->
+    <div id="combo" class="combo hidden">🔥 0x COMBO</div>
+
+    <!-- Game container -->
+    <div id="gameContainer" class="game-container">
+      <div id="perfectLine" class="perfect-line"></div>
+      <div id="board" class="board"></div>
+    </div>
+
+    <!-- Bottom controls -->
+    <div class="controls">
+      <button id="toggleSound" class="control-btn">Sound: On</button>
+    </div>
+
+    <!-- Menu overlay -->
+    <div id="menu" class="overlay menu">
+      <div class="menu-card">
+        <h1>Piano Tiles</h1>
+        <p>Tap the black tiles as they reach the golden line</p>
+        <div id="best" class="best"></div>
+        <button id="startBtn" class="big-btn" type="button">Start</button>
+      </div>
+    </div>  <!-- ✅ FIXED: THIS CLOSING DIV WAS MISSING -->
+
+    <!-- Game over overlay -->
+    <div id="gameover" class="overlay gameover hidden">
+      <div class="menu-card">
+        <h1 class="go-title">Game Over!</h1>
+        <div class="go-stats">
+          <div><small>Score</small><div id="go-score" class="go-number">0</div></div>
+          <div><small>Best Combo</small><div id="go-combo" class="go-number">0</div></div>
+          <div id="newHigh" class="new-high hidden">🎉 NEW HIGH SCORE!</div>
+          <div class="best small"><span>Best: </span><span id="storedBest">0</span></div>
+        </div>
+
+        <button id="themeBtn" class="big-btn" type="button">Theme: Arcade</button>
+        <button id="restartBtn" class="big-btn" type="button">Restart</button>
+      </div>
+    </div>
+
+    <!-- Feedback container -->
+    <div id="feedbackContainer" class="feedback-container" aria-hidden="true"></div>
+  </div>
+
+  <script src="gamelogic.js"></script>
 </body>
 </html>
